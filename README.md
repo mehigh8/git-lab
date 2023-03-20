@@ -205,7 +205,7 @@ ne permite sa modificam istoricul mai mult decat `--amend`: ne permite sa facem 
 Comanda mai asteapta si intervalul de commit-uri asupra carora se vor face modificarile.
 De obicei, acest interval este dat sub forma `@~N`, care inseamna "ultimele N commit-uri". 
 
-#### Reseting
+#### Reset
 
 Exista situatii cand este mai simplu sa fie refacut istoricul de commit-uri stergandu-le pe toate si rescriindu-le.
 Pentru asta se poate folosi
@@ -240,3 +240,27 @@ Pentru a reveni la starea de dinainte de `git bisect start`, se foloseste comand
 
 ## Exercitii:
 
+1. Faceti fork repository-ului, cu optiunea de a copia si branch-urile existente.
+Clonati repository-ul obtinut.
+Adaugati un remote `upstream` catre repository-ul original.
+2. Echipa a decis ca nu se vor mai adauga feature-uri in plus.
+Faceti schimbarea pe branch-ul `feature_branch_2`, pentru a fi la zi cu modificarile de pe branch-ul `feature_branch_1`.
+Pastrati linia cu "big boss". 
+Creati un pull-request, din interfata GitHub, catre branch-ul `feature_branch_1` din fork-ul vostru.
+Adaugati asistentul de la laborator ca reviewer.
+
+Pentru urmatoarele exercitii, veti lucra pe diferite branch-uri din acest repository, cu un program scris de un intern imaginar, de la o firma imaginara.
+Programul trebuie sa citeasca un numar de la tastatura, si sa intoarca valoarea citita adunata cu 5.
+Pentru fiecare exercitiu, veti crea un pull request catre branch-ul `main` din fork-ul vostru.
+
+3. Folosind `git commit --amend`, modificati mesajul de commit al ultimului commit de pe branch-ul `amend_branch`.
+Nu conteaza in ce modificati mesajul.
+4. Pe parcursul dezvoltarii, intern-ul a introdus un bug: numarul citit nu se aduna cu 5.
+Folosind `git bisect`, gasiti commit-ul care a introdus bug-ul.
+(Nu conteaza daca e evident unde apare, folositi `bisect`).
+Adaugati un commit care rezolva problema, pe branch-ul `bisect_branch`.
+5. Folosind `git rebase --interactive`, faceti `squash` tuturor commit-urilor de pe branch-ul `rebase_interactive_branch` care nu adauga o functionalitate noua.
+6. Folosind `git reset`, eliminati toate commit-urile de pe branch-ul `reset_soft_branch` si creati un singur commit cu intreaga implementare.
+7. Manager-ul intern-ului tocmai a zis ce task avea de fapt de facut: sa genereze un numar random in 5 moduri diferite.
+Folosind `git reset --hard` Eliminati toate modificarile de pe branch-ul `reset_hard_branch`, si implementati ce i s-a cerut de fapt.
+(E o mica provocare sa gasiti a 5-a metoda - nu citire din `/dev/random` sau `rdseed`).
